@@ -1,0 +1,21 @@
+====================================
+       CAN PROTOCOL LOG REPORT
+====================================
+
+Total CAN Messages : 5000
+Successful Messages: 3697
+Total Errors       : 1303
+Overall Error Rate : 26.06%
+
+----- STATUS SUMMARY -----
+CRC_FAIL  : 447
+ERROR     : 415
+OK        : 3697
+TIMEOUT   : 441
+
+----- NODE ERROR SUMMARY -----
+AIRBAG_ECU     : 303 errors
+DASHBOARD      : 270 errors
+ABS_ECU        : 260 errors
+STEERING_ECU   : 237 errors
+ENGINE_ECU     : 233 errors
