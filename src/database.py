@@ -16,22 +16,24 @@ CREATE TABLE IF NOT EXISTS CAN_MESSAGES (
     payload TEXT
 )
 """)
-# with open("data/can_logs.csv", "r", newline="") as file:
-#     reader = csv.DictReader(file)
+# Clear existing data before importing
+cursor.execute("DELETE FROM CAN_MESSAGES")
+with open("data/can_logs.csv", "r", newline="") as file:
+    reader = csv.DictReader(file)
 
-#     for row in reader:
-#         cursor.execute("""
-#         INSERT INTO CAN_MESSAGES
-#         (timestamp, node, message_id, direction, status, payload)
-#         VALUES (?, ?, ?, ?, ?, ?)
-#         """, (
-#             row["timestamp"],
-#             row["node"],
-#             row["message_id"],
-#             row["direction"],
-#             row["status"],
-#             row["payload"]
-#         ))
+    for row in reader:
+        cursor.execute("""
+        INSERT INTO CAN_MESSAGES
+        (timestamp, node, message_id, direction, status, payload)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """, (
+            row["timestamp"],
+            row["node"],
+            row["message_id"],
+            row["direction"],
+            row["status"],
+            row["payload"]
+        ))
 connection.commit()
 
 print("CAN data imported successfully")
